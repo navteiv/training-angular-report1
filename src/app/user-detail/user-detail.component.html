@@ -1,0 +1,23 @@
+<nb-card *ngIf="selectedUser">
+  <nb-card-header>{{selectedUser.username | uppercase}} details</nb-card-header>
+  <nb-card-body>
+    <div>
+      <span>id: </span> <b>{{selectedUser.id}}</b>
+    </div>
+    <div>
+      <label for="user-name">User name: </label> &nbsp;
+      <input nbInput fullWidth shape="round" id="user-name" [(ngModel)]="selectedUser.username" placeholder="name">
+    </div>
+    <div>
+      <label for="phone-number">Phone number: </label> &nbsp;
+      <input nbInput fullWidth shape="round" id="phone-number" [(ngModel)]="selectedUser.phone" placeholder="phone">
+    </div>
+    <div>
+      <label for="email">Email address: </label> &nbsp;
+      <input nbInput fullWidth shape="round" id="email" [(ngModel)]="selectedUser.email" placeholder="email">
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton outline status="primary" [routerLink]="['/']">Back to List</button>
+  </nb-card-footer>
+</nb-card>
