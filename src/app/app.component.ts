@@ -13,12 +13,12 @@ export class AppComponent {
  {
    title: "List User",
    icon: 'list-outline',
-   link: '/'
+   link: '/list'
  },
  {
-   title: "User Information",
-   link: 'detail',
-   icon: 'person-outline'
+   title: "Add User",
+   icon: 'person-outline',
+   link: '/addnew',
  }
 ];
 }

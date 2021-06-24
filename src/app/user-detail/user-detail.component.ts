@@ -1,3 +1,4 @@
+import { Identifiers } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/models/user';
 import { CommonService } from '../Services/common.service';
@@ -9,6 +10,7 @@ import { CommonService } from '../Services/common.service';
 })
 export class UserDetailComponent implements OnInit {
   selectedUser?: User;
+  id?: number;
   constructor(private common: CommonService) {
     this.selectedUser = common.selectedUser;
   }

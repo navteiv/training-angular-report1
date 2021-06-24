@@ -9,14 +9,26 @@ import { CommonService } from '../Services/common.service';
   styleUrls: ['./list-user.component.css']
 })
 export class ListUserComponent implements OnInit {
-  users = USERS;
-
-  constructor(private common: CommonService) { }
+  users: any;
+  public searchName = '';
+  constructor(private common: CommonService) {
+    this.users = common.users;
+   }
   displayUser (user: User): void{
     this.common.selectedUser = user;
     console.log(this.common.selectedUser);
   }
-
+  deleteUser (user: User): void{
+    const index: number = this.users.indexOf(user);
+    if(index !== -1){
+      this.common.users.splice(index, 1);
+    }
+  }
+  Search(){
+    this.users = this.common.users.filter(res =>{
+      return res.username.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+    });
+  }
   ngOnInit(): void {
   }
 }

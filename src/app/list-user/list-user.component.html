@@ -8,11 +8,17 @@
     </ul>
   </div>
 </div> -->
+<button class="btn btn-large btn-primary mr-2 mb-2" [routerLink]="['/addnew']">Create New</button>
+<input nbInput fullWidth shape="round" id="user-name" [(ngModel)]="searchName" (input)="Search()" class="mb-2 text-danger border border-dark" placeholder="Search">
 <nb-card size="medium">
   <nb-list>
-    <nb-list-item *ngFor="let user of users" (click)="displayUser(user)" [routerLink]="['/detail']">
-      <nb-user [name]="user.username" [title]="user.email">
+    <nb-list-item *ngFor="let user of users" >
+      <nb-user [name]="user.username" [title]="user.email" (click)="displayUser(user)" [routerLink]="['/detail']">
       </nb-user>
+      <span class=" ml-auto">
+        <!-- <button class="btn btn-primary mr-2">Edit</button> -->
+        <button class="btn btn-danger mr-5" (click)="deleteUser(user)" >Delete</button>
+      </span>
     </nb-list-item>
   </nb-list>
 </nb-card>

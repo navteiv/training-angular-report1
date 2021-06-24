@@ -8,14 +8,16 @@ import { RouterModule } from '@angular/router';
 import { ListUserComponent } from './list-user/list-user.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddUserComponent } from './add-user/add-user.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ListUserComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     NbListModule,
     NbCardModule,
     NbUserModule,
-    NbInputModule
+    NbInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
