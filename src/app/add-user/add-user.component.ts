@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/models/user';
 import { CommonService } from '../Services/common.service';
+import { FormBuilder } from '@angular/forms';
+
 
 @Component({
   selector: 'app-add-user',
@@ -10,12 +12,20 @@ import { CommonService } from '../Services/common.service';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-  public userForm = new FormGroup({
-    username: new FormControl(''),
-    phone: new FormControl(''),
-    email: new FormControl('')
+  // userForm = new FormGroup({
+  //   username: new FormControl(''),
+  //   phone: new FormControl(''),
+  //   email: new FormControl('')
+  // });
+  userForm = this.fb.group({
+    username: [''],
+    phone: [''],
+    email: ['']
   });
-  constructor(private common: CommonService, private _router: Router) {
+
+  selectedUser?: User;
+  constructor(private common: CommonService, private _router: Router, private fb: FormBuilder) {
+    this.selectedUser = common.selectedUser;
   }
 
   addUser (): void{

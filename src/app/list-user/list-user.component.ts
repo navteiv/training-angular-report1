@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { USERS } from 'src/list-user';
 import { User } from 'src/models/user';
@@ -15,6 +16,8 @@ export class ListUserComponent implements OnInit {
     this.users = common.users;
    }
   displayUser (user: User): void{
+    const index: number = this.users.indexOf(user);
+    this.common.ind = index;
     this.common.selectedUser = user;
     console.log(this.common.selectedUser);
   }

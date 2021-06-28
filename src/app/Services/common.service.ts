@@ -10,4 +10,5 @@ export class CommonService {
   constructor() { }
   selectedUser?: User;
   users = USERS;
+  ind?: number;
 }

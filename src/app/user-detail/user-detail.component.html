@@ -1,4 +1,4 @@
-<nb-card *ngIf="selectedUser">
+<!-- <nb-card *ngIf="selectedUser">
   <nb-card-header>{{selectedUser.username | uppercase}} details</nb-card-header>
   <nb-card-body>
     <div>
@@ -17,4 +17,28 @@
   <nb-card-footer>
     <button nbButton outline status="primary" [routerLink]="['/list']">Save</button>
   </nb-card-footer>
-</nb-card>
+</nb-card> -->
+<form [formGroup]="userForm" (ngSubmit)="updateUser()" *ngIf="selectedUser">
+  <nb-card>
+    <nb-card-header>{{selectedUser.username | uppercase}} details</nb-card-header>
+    <nb-card-body>
+      <div>
+        <label for="user-name">User name: </label> &nbsp;
+        <input nbInput fullWidth shape="round" id="user-name" formControlName="username" placeholder="username" required>
+        <!-- <span *ngIf="userForm.controls.username.invalid" class="text-danger">* Vui lòng không để trống username</span> -->
+      </div>
+      <div>
+        <label for="phone-number">Phone number: </label> &nbsp;
+        <input nbInput fullWidth shape="round" id="phone-number" formControlName="phone" placeholder="phone" required>
+      </div>
+      <div>
+        <label for="email">Email address: </label> &nbsp;
+        <input nbInput fullWidth shape="round" id="email" formControlName="email" placeholder="email" required>
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <button nbButton outline status="primary" type="submit" [disabled]="userForm.invalid">Save</button> &nbsp;
+      <button nbButton outline status="primary" [routerLink] = "['/list']">Back to List</button>
+    </nb-card-footer>
+  </nb-card>
+  </form>
